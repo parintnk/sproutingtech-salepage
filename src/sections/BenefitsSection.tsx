@@ -5,7 +5,31 @@ import { BENEFITS } from '@/constants/data';
 
 const BenefitsSection: React.FC = () => {
   return (
-    <section className="py-20 px-4 bg-slate-800 text-white">
+    <section className="relative py-20 px-4 bg-slate-800 text-white overflow-hidden">
+      {/* Matrix-style Background */}
+      <div className="absolute inset-0 bg-gradient-to-bl from-slate-800 via-slate-900 to-gray-800"></div>
+
+      {/* Digital Rain Effect (Static) */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="w-full h-full" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='100' viewBox='0 0 20 100'%3E%3Cg fill='%2314b8a6'%3E%3Crect x='0' y='0' width='1' height='10'/%3E%3Crect x='0' y='20' width='1' height='5'/%3E%3Crect x='0' y='30' width='1' height='15'/%3E%3Crect x='0' y='50' width='1' height='8'/%3E%3Crect x='0' y='65' width='1' height='12'/%3E%3Crect x='0' y='85' width='1' height='7'/%3E%3C/g%3E%3C/svg%3E")`
+        }}></div>
+      </div>
+
+      {/* Scanning Lines */}
+      <div className="absolute inset-0">
+        <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-teal-400/50 to-transparent animate-pulse transform translate-y-0 animate-pulse"></div>
+        <div className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-blue-400/50 to-transparent animate-pulse"></div>
+      </div>
+
+      {/* Floating Tech Elements */}
+      <div className="absolute inset-0">
+        <div className="absolute top-1/4 left-10 w-6 h-6 border border-teal-500/30 transform rotate-45 animate-spin"></div>
+        <div className="absolute top-1/2 right-10 w-8 h-8 border border-blue-500/30 rounded-full animate-pulse"></div>
+        <div className="absolute bottom-1/4 left-1/3 w-4 h-4 bg-purple-500/20 transform rotate-12 animate-bounce"></div>
+      </div>
+
+      <div className="relative z-10">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-12">
           <div className="flex items-center justify-center gap-3 mb-6">
@@ -47,6 +71,7 @@ const BenefitsSection: React.FC = () => {
             </button>
           </div>
         </div>
+      </div>
       </div>
     </section>
   );

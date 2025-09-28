@@ -13,7 +13,35 @@ interface FeaturesSectionProps {
 
 const FeaturesSection: React.FC<FeaturesSectionProps> = ({ features }) => {
   return (
-    <section className="py-20 px-4 bg-slate-800">
+    <section className="relative py-20 px-4 bg-slate-800 overflow-hidden">
+      {/* Complex Multi-layer Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-800 via-slate-900 to-slate-800"></div>
+      <div className="absolute inset-0 bg-gradient-to-tr from-teal-900/10 via-purple-900/5 to-blue-900/10"></div>
+
+      {/* Animated Grid Lines */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="w-full h-full relative">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `
+              linear-gradient(90deg, rgba(20, 184, 166, 0.1) 1px, transparent 1px),
+              linear-gradient(rgba(20, 184, 166, 0.1) 1px, transparent 1px)
+            `,
+            backgroundSize: '50px 50px'
+          }}></div>
+          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-teal-500/50 to-transparent animate-pulse"></div>
+          <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-blue-500/50 to-transparent animate-pulse"></div>
+        </div>
+      </div>
+
+      {/* Tech Nodes */}
+      <div className="absolute inset-0">
+        <div className="absolute top-20 left-20 w-4 h-4 bg-teal-500/30 rounded-full animate-ping"></div>
+        <div className="absolute top-40 right-40 w-3 h-3 bg-blue-500/30 rounded-full animate-pulse"></div>
+        <div className="absolute bottom-32 left-32 w-5 h-5 bg-purple-500/20 rounded-full animate-bounce"></div>
+        <div className="absolute bottom-20 right-20 w-2 h-2 bg-teal-400/40 rounded-full animate-ping"></div>
+      </div>
+
+      <div className="relative z-10">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-3 mb-6">
@@ -221,6 +249,7 @@ const FeaturesSection: React.FC<FeaturesSectionProps> = ({ features }) => {
             </div>
           ))}
         </div>
+      </div>
       </div>
     </section>
   );

@@ -10,7 +10,35 @@ interface TestimonialsSectionProps {
 
 const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ studentsCount }) => {
   return (
-    <section className="py-20 px-4 bg-slate-900 text-white">
+    <section className="relative py-20 px-4 bg-slate-900 text-white overflow-hidden">
+      {/* Starfield Effect */}
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-900 via-gray-900 to-slate-800"></div>
+
+      {/* Constellation Pattern */}
+      <div className="absolute inset-0 opacity-30">
+        <div className="w-full h-full relative">
+          <div className="absolute top-1/4 left-1/4 w-1 h-1 bg-teal-400 rounded-full animate-pulse"></div>
+          <div className="absolute top-1/3 right-1/3 w-1 h-1 bg-blue-400 rounded-full animate-ping"></div>
+          <div className="absolute bottom-1/4 left-1/3 w-1 h-1 bg-purple-400 rounded-full animate-pulse"></div>
+          <div className="absolute bottom-1/3 right-1/4 w-1 h-1 bg-teal-300 rounded-full animate-ping"></div>
+          <div className="absolute top-1/2 left-1/2 w-1 h-1 bg-blue-300 rounded-full animate-pulse"></div>
+
+          {/* Connection Lines */}
+          <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <line x1="25" y1="25" x2="33" y2="33" stroke="rgba(20, 184, 166, 0.2)" strokeWidth="0.1"/>
+            <line x1="33" y1="33" x2="25" y2="75" stroke="rgba(59, 130, 246, 0.2)" strokeWidth="0.1"/>
+            <line x1="25" y1="75" x2="75" y2="67" stroke="rgba(147, 51, 234, 0.2)" strokeWidth="0.1"/>
+          </svg>
+        </div>
+      </div>
+
+      {/* Glowing Orbs */}
+      <div className="absolute inset-0">
+        <div className="absolute top-10 right-10 w-32 h-32 bg-teal-500/5 rounded-full blur-2xl animate-pulse"></div>
+        <div className="absolute bottom-10 left-10 w-40 h-40 bg-blue-500/5 rounded-full blur-3xl animate-bounce"></div>
+      </div>
+
+      <div className="relative z-10">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-3 mb-6">
@@ -47,6 +75,7 @@ const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ studentsCount
             </CTAButton>
           </div>
         </div>
+      </div>
       </div>
     </section>
   );

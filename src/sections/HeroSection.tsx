@@ -9,7 +9,41 @@ interface HeroSectionProps {
 
 const HeroSection: React.FC<HeroSectionProps> = ({ timeLeft }) => {
   return (
-    <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-gray-900 text-white py-20 sm:py-24 md:py-32 px-4 mt-16">
+    <section className="relative overflow-hidden bg-black text-white py-20 sm:py-24 md:py-32 px-4 mt-16">
+      {/* Dynamic Gradient Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 opacity-80"></div>
+      <div className="absolute inset-0 bg-gradient-to-tl from-cyan-900/50 via-transparent to-blue-900/50"></div>
+
+      {/* Cyberpunk Grid */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="w-full h-full" style={{
+          backgroundImage: `
+            linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px),
+            linear-gradient(rgba(255, 0, 255, 0.05) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 0, 255, 0.05) 1px, transparent 1px)
+          `,
+          backgroundSize: '100px 100px, 100px 100px, 20px 20px, 20px 20px'
+        }}></div>
+      </div>
+
+      {/* Neon Accents */}
+      <div className="absolute inset-0">
+        <div className="absolute top-20 left-20 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-20 w-48 h-48 bg-pink-500/10 rounded-full blur-2xl animate-bounce"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl animate-ping"></div>
+      </div>
+
+      {/* Floating Elements */}
+      <div className="absolute inset-0">
+        <div className="absolute top-32 left-10 w-2 h-2 bg-cyan-400 rounded-full animate-ping"></div>
+        <div className="absolute top-48 right-16 w-1 h-1 bg-pink-400 rounded-full animate-pulse"></div>
+        <div className="absolute bottom-32 left-24 w-3 h-3 bg-purple-400 rounded-full animate-bounce"></div>
+        <div className="absolute bottom-48 right-10 w-1 h-1 bg-cyan-300 rounded-full animate-ping"></div>
+      </div>
+
+      {/* Content Overlay */}
+      <div className="relative z-10">
       <div className="max-w-6xl mx-auto text-center">
         <div className="mb-8">
           <div className="inline-flex items-center gap-2 bg-teal-600/20 border border-teal-500/30 rounded-full px-4 py-2 mb-6">
@@ -73,6 +107,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ timeLeft }) => {
             <span>{"24/7 Professional Support"}</span>
           </div>
         </div>
+      </div>
       </div>
     </section>
   );

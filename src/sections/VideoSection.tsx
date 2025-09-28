@@ -37,7 +37,31 @@ const VideoSection: React.FC<VideoSectionProps> = ({ videoSectionRef, isVideoInV
   }, [isVideoInView]);
 
   return (
-    <section ref={videoSectionRef} className="py-20 px-4 bg-slate-800">
+    <section ref={videoSectionRef} className="relative py-20 px-4 bg-slate-800 overflow-hidden">
+      {/* Dynamic Gradient Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-800 via-slate-900 to-gray-900"></div>
+
+      {/* Floating Geometric Shapes */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-20 left-10 w-16 h-16 border border-teal-500/20 rotate-45 animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-20 h-20 border border-blue-500/20 rounded-full animate-bounce"></div>
+        <div className="absolute top-1/2 left-20 w-8 h-8 bg-teal-500/10 rotate-12 animate-spin"></div>
+        <div className="absolute top-32 right-32 w-12 h-12 border-2 border-purple-500/20 transform rotate-45"></div>
+      </div>
+
+      {/* Tech Circuit Pattern */}
+      <div className="absolute inset-0 opacity-10">
+        <svg className="w-full h-full" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="circuit" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+              <path d="M0 20 L20 20 L20 0 M20 20 L40 20 M20 20 L20 40" stroke="currentColor" strokeWidth="1" fill="none" className="text-teal-500"/>
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#circuit)"/>
+        </svg>
+      </div>
+
+      <div className="relative z-10">
       <div className="max-w-4xl mx-auto text-center">
         <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-black aspect-video border border-slate-600">
           <iframe
@@ -57,6 +81,7 @@ const VideoSection: React.FC<VideoSectionProps> = ({ videoSectionRef, isVideoInV
             {"Ready to Start? Enroll Now - ฿6,900"}
           </CTAButton>
         </div>
+      </div>
       </div>
     </section>
   );

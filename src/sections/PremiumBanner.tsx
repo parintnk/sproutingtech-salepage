@@ -9,8 +9,19 @@ const PremiumBanner: React.FC<PremiumBannerProps> = ({ timeLeft }) => {
   return (
     <div className="fixed top-0 left-0 right-0 z-50 shadow-xl">
       <div className="bg-slate-800 border-b border-slate-700 text-white py-3 sm:py-4 px-4 sm:px-6 relative overflow-hidden">
-        {/* Subtle background pattern */}
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-800 via-slate-700 to-slate-800 opacity-50"></div>
+        {/* Enhanced Tech Background */}
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-800 via-slate-700 to-slate-800"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-teal-900/10 via-transparent to-blue-900/10"></div>
+
+        {/* Tech Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="w-full h-full" style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%2314b8a6' fill-opacity='0.3'%3E%3Cpath d='M20 20.5V18h3v-3h2v3h3v2.5h-3v3h-2v-3h-3zM12 13h2v2h-2v-2zm0 14h2v2h-2v-2z'/%3E%3C/g%3E%3C/svg%3E")`
+          }}></div>
+        </div>
+
+        {/* Scanning Effect */}
+        <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-teal-400/50 to-transparent animate-pulse"></div>
 
         <div className="relative max-w-6xl mx-auto">
           {/* Mobile Layout */}
@@ -119,8 +130,10 @@ const PremiumBanner: React.FC<PremiumBannerProps> = ({ timeLeft }) => {
       </div>
 
       {/* Bottom strip */}
-      <div className="bg-slate-700 border-t border-slate-600 hidden md:block text-white py-1.5 px-4">
-        <div className="max-w-6xl mx-auto flex items-center justify-center gap-3 text-sm font-medium">
+      <div className="bg-slate-700 border-t border-slate-600 hidden md:block text-white py-1.5 px-4 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-700 via-slate-600 to-slate-700"></div>
+        <div className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-blue-400/50 to-transparent animate-pulse"></div>
+        <div className="relative max-w-6xl mx-auto flex items-center justify-center gap-3 text-sm font-medium">
           <FaUser className="w-4 h-4 text-teal-300" />
           <span className="text-slate-300">{"Limited Enrollment: 15 seats remaining | 880+ professionals enrolled"}</span>
           <div className="bg-teal-600 text-white px-3 py-1 rounded-lg text-xs font-semibold border border-teal-500">

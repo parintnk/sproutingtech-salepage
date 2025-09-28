@@ -9,7 +9,36 @@ interface FinalCTASectionProps {
 
 const FinalCTASection: React.FC<FinalCTASectionProps> = ({ timeLeft }) => {
   return (
-    <section className="py-20 px-4 bg-gray-900">
+    <section className="relative py-20 px-4 bg-gray-900 overflow-hidden">
+      {/* Final CTA Background - Dramatic Tech */}
+      <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-slate-800 to-gray-900"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-teal-900/20 via-purple-900/10 to-blue-900/20"></div>
+
+      {/* Particle Field */}
+      <div className="absolute inset-0">
+        <div className="absolute top-10 left-10 w-2 h-2 bg-teal-400/60 rounded-full animate-ping"></div>
+        <div className="absolute top-20 right-20 w-1 h-1 bg-blue-400/60 rounded-full animate-pulse"></div>
+        <div className="absolute bottom-20 left-20 w-3 h-3 bg-purple-400/40 rounded-full animate-bounce"></div>
+        <div className="absolute bottom-10 right-10 w-1 h-1 bg-teal-300/60 rounded-full animate-ping"></div>
+        <div className="absolute top-1/3 left-1/3 w-1 h-1 bg-blue-300/60 rounded-full animate-pulse"></div>
+        <div className="absolute bottom-1/3 right-1/3 w-2 h-2 bg-purple-300/40 rounded-full animate-bounce"></div>
+      </div>
+
+      {/* Energy Grid */}
+      <div className="absolute inset-0 opacity-20">
+        <svg className="w-full h-full" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="energyGrid" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse">
+              <circle cx="40" cy="40" r="1" fill="currentColor" className="text-teal-400"/>
+              <line x1="40" y1="0" x2="40" y2="80" stroke="currentColor" strokeWidth="0.5" className="text-teal-400/30"/>
+              <line x1="0" y1="40" x2="80" y2="40" stroke="currentColor" strokeWidth="0.5" className="text-teal-400/30"/>
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#energyGrid)"/>
+        </svg>
+      </div>
+
+      <div className="relative z-10">
       <div className="max-w-4xl mx-auto text-center">
         <div className="flex items-center justify-center gap-3 mb-4">
           <FaRobot className="w-10 h-10 text-teal-400" />
@@ -110,6 +139,7 @@ const FinalCTASection: React.FC<FinalCTASectionProps> = ({ timeLeft }) => {
             </div>
           </div>
         </div>
+      </div>
       </div>
     </section>
   );
