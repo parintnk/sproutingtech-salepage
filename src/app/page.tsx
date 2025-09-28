@@ -157,23 +157,68 @@ export default function Home() {
     <div className="min-h-screen bg-white">
       {/* Premium Sales Banner */}
       <div className="fixed top-0 left-0 right-0 z-50 shadow-xl">
-        <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-green-600 text-white py-4 sm:py-5 px-4 sm:px-6 relative overflow-hidden">
+        <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-green-600 text-white py-2 sm:py-4 px-2 sm:px-4 relative overflow-hidden">
           {/* Subtle background pattern */}
           <div className="absolute inset-0 bg-black/10"></div>
 
           <div className="relative max-w-6xl mx-auto">
-            <div className="flex flex-col lg:flex-row items-center justify-between gap-4 lg:gap-6">
+            {/* Mobile Layout */}
+            <div className="block lg:hidden">
+              {/* Top Row: Sale Info */}
+              <div className="flex items-center justify-between mb-2">
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+                    <FaFire className="w-4 h-4 text-yellow-300" />
+                  </div>
+                  <div>
+                    <div className="font-bold text-sm">{"ข้อเสนอพิเศษ AI"}</div>
+                    <div className="text-xs text-blue-200">{"ลดราคา 73%"}</div>
+                  </div>
+                </div>
+                <div className="text-right">
+                  <div className="text-xs text-blue-200">{"จาก"} <span className="line-through">{"฿25,900"}</span></div>
+                  <div className="text-lg font-bold text-yellow-300">{"฿6,900"}</div>
+                </div>
+              </div>
 
+              {/* Bottom Row: Timer & CTA */}
+              <div className="flex items-center justify-between gap-2">
+                <div className="flex items-center gap-1 bg-white/10 rounded-lg px-3 py-1.5 backdrop-blur-sm">
+                  <FaClock className="w-4 h-4 text-yellow-300" />
+                  <div className="flex items-center gap-1">
+                    <div className="bg-white text-blue-700 font-bold px-2 py-1 rounded text-sm font-mono min-w-[28px] text-center">
+                      {String(timeLeft.hours).padStart(2, '0')}
+                    </div>
+                    <span className="text-white text-sm">:</span>
+                    <div className="bg-white text-blue-700 font-bold px-2 py-1 rounded text-sm font-mono min-w-[28px] text-center">
+                      {String(timeLeft.minutes).padStart(2, '0')}
+                    </div>
+                    <span className="text-white text-sm">:</span>
+                    <div className="bg-white text-blue-700 font-bold px-2 py-1 rounded text-sm font-mono min-w-[28px] text-center">
+                      {String(timeLeft.seconds).padStart(2, '0')}
+                    </div>
+                  </div>
+                </div>
+
+                <button className="bg-green-500 hover:bg-green-400 text-white font-bold px-4 py-2 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl text-xs flex items-center gap-1">
+                  <span>{"สั่งซื้อเลย"}</span>
+                  <FaArrowRight className="w-3 h-3" />
+                </button>
+              </div>
+            </div>
+
+            {/* Desktop Layout */}
+            <div className="hidden lg:flex items-center justify-between gap-6">
               {/* Left: Sale Info */}
-              <div className="flex items-center gap-3 sm:gap-4">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
-                  <FaFire className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-300" />
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+                  <FaFire className="w-6 h-6 text-yellow-300" />
                 </div>
                 <div>
-                  <div className="font-bold text-lg sm:text-xl lg:text-2xl">
+                  <div className="font-bold text-2xl">
                     {"ข้อเสนอพิเศษ AI Automation"}
                   </div>
-                  <div className="text-sm sm:text-base text-blue-200">
+                  <div className="text-base text-blue-200">
                     {"ลดราคา 73% เฉพาะวันนี้เท่านั้น"}
                   </div>
                 </div>
@@ -184,15 +229,15 @@ export default function Home() {
                 <FaClock className="w-4 h-4 text-yellow-300" />
                 <span className="text-sm font-medium text-blue-200 mr-2">{"เหลือเวลา:"}</span>
                 <div className="flex items-center gap-1">
-                  <div className="bg-white text-blue-700 font-bold px-2 py-1 rounded text-sm sm:text-base font-mono min-w-[32px] text-center">
+                  <div className="bg-white text-blue-700 font-bold px-2 py-1 rounded text-base font-mono min-w-[32px] text-center">
                     {String(timeLeft.hours).padStart(2, '0')}
                   </div>
                   <span className="text-white text-sm">:</span>
-                  <div className="bg-white text-blue-700 font-bold px-2 py-1 rounded text-sm sm:text-base font-mono min-w-[32px] text-center">
+                  <div className="bg-white text-blue-700 font-bold px-2 py-1 rounded text-base font-mono min-w-[32px] text-center">
                     {String(timeLeft.minutes).padStart(2, '0')}
                   </div>
                   <span className="text-white text-sm">:</span>
-                  <div className="bg-white text-blue-700 font-bold px-2 py-1 rounded text-sm sm:text-base font-mono min-w-[32px] text-center">
+                  <div className="bg-white text-blue-700 font-bold px-2 py-1 rounded text-base font-mono min-w-[32px] text-center">
                     {String(timeLeft.seconds).padStart(2, '0')}
                   </div>
                 </div>
@@ -203,11 +248,11 @@ export default function Home() {
                 {/* Price */}
                 <div className="text-center">
                   <div className="text-sm text-blue-200">{"จาก"} <span className="line-through">{"฿25,900"}</span></div>
-                  <div className="text-xl sm:text-2xl font-bold text-yellow-300">{"฿6,900"}</div>
+                  <div className="text-2xl font-bold text-yellow-300">{"฿6,900"}</div>
                 </div>
 
                 {/* CTA Button */}
-                <button className="bg-green-500 hover:bg-green-400 text-white font-bold px-6 sm:px-8 py-2.5 sm:py-3 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl text-sm sm:text-base flex items-center gap-2 whitespace-nowrap">
+                <button className="bg-green-500 hover:bg-green-400 text-white font-bold px-8 py-3 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl text-base flex items-center gap-2 whitespace-nowrap">
                   <span>{"สั่งซื้อเลย"}</span>
                   <FaArrowRight className="w-4 h-4" />
                 </button>
@@ -286,7 +331,7 @@ export default function Home() {
           <div className="flex flex-col gap-3 sm:gap-4 justify-center items-center">
             <CTAButton size="large" className="bg-green-600 hover:bg-green-500 w-full sm:w-auto text-center">
               <FaArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
-              <span className="text-base sm:text-lg md:text-xl">{"เริ่มเรียนตอนนี้ - ฿6,990"}</span>
+              <span className="text-base sm:text-lg md:text-xl">{"เริ่มเรียนตอนนี้ - ฿6,900"}</span>
             </CTAButton>
             <button className="bg-transparent border-2 border-white/30 hover:border-white/50 text-white px-4 sm:px-6 md:px-8 py-3 sm:py-4 rounded-lg text-base sm:text-lg font-semibold transition-all flex items-center gap-2 sm:gap-3 w-full sm:w-auto justify-center">
               <FaPlay className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -329,7 +374,7 @@ export default function Home() {
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
             <CTAButton>
               <FaPlay className="w-5 h-5" />
-              {"🚀 ดูแล้วอยากเริ่มเลย - ฿6,990"}
+              {"🚀 ดูแล้วอยากเริ่มเลย - ฿6,900"}
             </CTAButton>
           </div>
         </div>
@@ -545,7 +590,7 @@ export default function Home() {
                           <span className="text-lg font-bold text-red-600">฿15,000-50,000</span>
                         </td>
                         <td className="py-4 px-6 text-center bg-blue-50">
-                          <span className="text-lg font-bold text-green-600">฿6,990</span>
+                          <span className="text-lg font-bold text-green-600">฿6,900</span>
                           <div className="text-xs text-gray-500 mt-1">ประหยัด 73%</div>
                         </td>
                         <td className="py-4 px-6 text-center">
@@ -582,7 +627,7 @@ export default function Home() {
                       <span className="text-sm sm:text-base">30 วัน</span>
                     </div>
                     <div className="pt-2 border-t border-white/20">
-                      <div className="text-2xl sm:text-3xl font-bold">฿6,990</div>
+                      <div className="text-2xl sm:text-3xl font-bold">฿6,900</div>
                       <div className="text-xs sm:text-sm text-green-200">ประหยัด 73%</div>
                     </div>
                   </div>
@@ -714,7 +759,7 @@ export default function Home() {
             <div className="max-w-sm mx-auto">
               <button className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-full text-sm sm:text-base transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2">
                 <FaArrowRight className="w-4 h-4" />
-                <span>{"อยากเป็นเหมือนพวกเขา - ฿6,990"}</span>
+                <span>{"อยากเป็นเหมือนพวกเขา - ฿6,900"}</span>
               </button>
             </div>
           </div>
@@ -757,7 +802,7 @@ export default function Home() {
             <div className="max-w-md mx-auto">
               <button className="w-full bg-white text-green-800 hover:bg-gray-100 border-2 border-green-600 font-bold py-4 px-6 rounded-full text-base sm:text-lg md:text-xl transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2 sm:gap-3">
                 <HiSparkles className="w-5 h-5 sm:w-6 sm:h-6" />
-                <span>{"รับทุกสิ่งนี้เพียง ฿6,990"}</span>
+                <span>{"รับทุกสิ่งนี้เพียง ฿6,900"}</span>
               </button>
             </div>
           </div>
@@ -846,7 +891,7 @@ export default function Home() {
                       </div>
 
                       <div className="text-center bg-yellow-400/20 rounded-lg p-3 sm:p-4">
-                        <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-yellow-300 mb-1 sm:mb-2">{"วันนี้เพียง ฿6,990!"}</p>
+                        <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-yellow-300 mb-1 sm:mb-2">{"วันนี้เพียง ฿6,900!"}</p>
                         <div className="flex items-center justify-center gap-2">
                           <FaArrowRight className="w-4 h-4 text-green-300" />
                           <p className="text-green-300 font-bold text-base sm:text-lg md:text-xl">{"ประหยัด ฿38,810 (85% OFF!)"}</p>
