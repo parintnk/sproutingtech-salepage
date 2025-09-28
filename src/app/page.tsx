@@ -905,7 +905,7 @@ export default function Home() {
               {/* CTA Button */}
               <div className="text-center order-1 lg:order-2">
                 <div className="max-w-sm mx-auto">
-                  <button className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-4 sm:py-5 md:py-6 px-6 sm:px-8 md:px-12 rounded-full text-lg sm:text-xl md:text-2xl transition-all duration-300 shadow-lg hover:shadow-xl animate-bounce flex items-center justify-center gap-2 sm:gap-3 mb-3 sm:mb-4 border-2 border-green-500">
+                  <button className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-4 sm:py-5 md:py-6 px-6 sm:px-8 md:px-12 rounded-full text-lg sm:text-xl md:text-2xl transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2 sm:gap-3 mb-3 sm:mb-4 border-2 border-green-500">
                     <FaArrowRight className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8" />
                     <span>{"สั่งซื้อตอนนี้เลย!"}</span>
                   </button>
