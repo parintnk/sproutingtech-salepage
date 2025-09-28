@@ -12,6 +12,9 @@ import TestimonialsSection from '@/sections/TestimonialsSection';
 import BenefitsSection from '@/sections/BenefitsSection';
 import FinalCTASection from '@/sections/FinalCTASection';
 
+// Components
+import StickyContactButton from '@/components/StickyContactButton';
+
 // Hooks
 import { useCountdownTimer, useStudentsCounter, useVideoIntersection } from '@/hooks/useCountdown';
 
@@ -45,6 +48,13 @@ export default function Home() {
       <TestimonialsSection studentsCount={studentsCount} />
       <BenefitsSection />
       <FinalCTASection timeLeft={timeLeft} />
+
+      {/* Sticky Contact Button */}
+      <StickyContactButton
+        facebookUrl="https://web.facebook.com/messages/t/747858405082962"
+        lineUrl="https://line.me/ti/p/your-line-id"
+        phoneNumber="+66123456789"
+      />
     </div>
   );
 }
