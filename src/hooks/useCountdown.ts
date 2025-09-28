@@ -25,7 +25,6 @@ export const useCountdownTimer = () => {
       const parsedTime = JSON.parse(savedTime);
       setTimeLeft(parsedTime);
     }
-
     const timer = setInterval(() => {
       setTimeLeft(prev => {
         let newTime;

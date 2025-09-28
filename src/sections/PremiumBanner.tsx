@@ -112,8 +112,8 @@ const PremiumBanner: React.FC<PremiumBannerProps> = ({ timeLeft }) => {
             <div className="flex items-center gap-4">
               {/* Price */}
               <div className="text-center">
-                <div className="text-sm text-slate-300">{"Regular Price"} <span className="line-through">{"฿25,900"}</span></div>
-                <div className="text-2xl font-bold text-teal-300">{"฿6,900"}</div>
+                <div className="text-sm md:text-lg text-slate-300">{"Regular Price"} <span className="line-through text-red-400">{"฿25,900"}</span></div>
+                <div className="text-2xl font-bold text-yellow-400">{"฿6,900"}</div>
               </div>
 
               {/* CTA Button */}
