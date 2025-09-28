@@ -36,7 +36,7 @@ const CoursesSection: React.FC = () => {
             <p className="text-slate-300 mb-6">
               {"Enroll in 2 programs: 10% discount | All 3 programs: 15% discount"}
             </p>
-            <CTAButton size="large" className="mx-auto">
+            <CTAButton size="large" className="mx-auto" href="/purchase">
               <HiSparkles className="w-5 h-5" />
               <span>{"View Bundle Options"}</span>
             </CTAButton>

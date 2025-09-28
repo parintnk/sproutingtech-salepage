@@ -72,7 +72,7 @@ const CourseCard: React.FC<CourseCardProps> = ({ course }) => (
           </div>
         </div>
 
-        <CTAButton className="w-full">
+        <CTAButton className="w-full" href="/purchase">
           <FaArrowRight className="w-4 h-4" />
           <span>{"Enroll Now"}</span>
         </CTAButton>

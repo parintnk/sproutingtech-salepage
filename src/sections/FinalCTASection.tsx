@@ -98,7 +98,7 @@ const FinalCTASection: React.FC<FinalCTASectionProps> = ({ timeLeft }) => {
             {/* CTA Button */}
             <div className="text-center order-1 lg:order-2">
               <div className="max-w-sm mx-auto">
-                <CTAButton size="large" className="w-full mb-3 sm:mb-4 text-lg sm:text-xl md:text-2xl py-4 sm:py-5 md:py-6">
+                <CTAButton size="large" className="w-full mb-3 sm:mb-4 text-lg sm:text-xl md:text-2xl py-4 sm:py-5 md:py-6" href="/purchase">
                   <FaArrowRight className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8" />
                   <span>{"Enroll Now"}</span>
                 </CTAButton>

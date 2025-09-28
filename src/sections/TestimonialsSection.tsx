@@ -41,7 +41,7 @@ const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ studentsCount
           </div>
           <p className="text-sm sm:text-base text-slate-300 mb-6 max-w-lg mx-auto leading-relaxed">{"Watch detailed success stories from professionals in our exclusive member portal"}</p>
           <div className="max-w-sm mx-auto">
-            <CTAButton className="w-full">
+            <CTAButton className="w-full" href="/purchase">
               <FaArrowRight className="w-4 h-4" />
               <span>{"Join Their Success - ฿6,900"}</span>
             </CTAButton>

@@ -23,7 +23,7 @@ const VideoSection: React.FC<VideoSectionProps> = ({ videoSectionRef, isVideoInV
         </div>
 
         <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-          <CTAButton size="large">
+          <CTAButton size="large" href="/purchase">
             <FaPlay className="w-5 h-5" />
             {"Ready to Start? Enroll Now - ฿6,900"}
           </CTAButton>

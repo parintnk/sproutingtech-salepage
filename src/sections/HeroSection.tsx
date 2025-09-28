@@ -48,7 +48,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ timeLeft }) => {
         />
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <CTAButton size="large">
+          <CTAButton size="large" href="/purchase">
             <FaArrowRight className="w-5 h-5" />
             <span>{"Enroll Now - ฿6,900"}</span>
           </CTAButton>
