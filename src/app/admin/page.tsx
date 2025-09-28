@@ -5,13 +5,42 @@ import { supabase, type Enrollment } from '@/lib/supabase';
 
 const AdminDashboard: React.FC = () => {
   const [enrollments, setEnrollments] = useState<Enrollment[]>([]);
+  const [allEnrollments, setAllEnrollments] = useState<Enrollment[]>([]);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState<'all' | 'pending' | 'confirmed' | 'rejected'>('all');
+  const [courseFilter, setCourseFilter] = useState<string>('all');
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   useEffect(() => {
     fetchEnrollments();
-  }, [filter]);
+  }, [filter, courseFilter]);
+
+  useEffect(() => {
+    fetchAllEnrollments();
+  }, []);
+
+  const fetchAllEnrollments = async () => {
+    try {
+      const { data, error } = await supabase
+        .from('enrollments')
+        .select('*')
+        .order('created_at', { ascending: false });
+
+      if (error) {
+        console.error('Error fetching all enrollments:', error);
+        return;
+      }
+
+      setAllEnrollments(data || []);
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
+
+  const getUniqueCourses = () => {
+    const courses = allEnrollments.map(enrollment => enrollment.course_title);
+    return [...new Set(courses)].filter(course => course);
+  };
 
   const fetchEnrollments = async () => {
     setLoading(true);
@@ -23,6 +52,10 @@ const AdminDashboard: React.FC = () => {
 
       if (filter !== 'all') {
         query = query.eq('status', filter);
+      }
+
+      if (courseFilter !== 'all') {
+        query = query.eq('course_title', courseFilter);
       }
 
       const { data, error } = await query;
@@ -121,7 +154,7 @@ const AdminDashboard: React.FC = () => {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-3">
-            {/* Filter */}
+            {/* Status Filter */}
             <div className="flex items-center gap-2">
               <FaFilter className="w-4 h-4 text-slate-400" />
               <select
@@ -129,10 +162,27 @@ const AdminDashboard: React.FC = () => {
                 onChange={(e) => setFilter(e.target.value as any)}
                 className="bg-slate-700 border border-slate-600 rounded-lg px-3 py-2 text-white text-sm focus:ring-2 focus:ring-teal-500"
               >
-                <option value="all">ทั้งหมด</option>
+                <option value="all">สถานะทั้งหมด</option>
                 <option value="pending">รอดำเนินการ</option>
                 <option value="confirmed">อนุมัติแล้ว</option>
                 <option value="rejected">ปฏิเสธ</option>
+              </select>
+            </div>
+
+            {/* Course Filter */}
+            <div className="flex items-center gap-2">
+              <FaGraduationCap className="w-4 h-4 text-slate-400" />
+              <select
+                value={courseFilter}
+                onChange={(e) => setCourseFilter(e.target.value)}
+                className="bg-slate-700 border border-slate-600 rounded-lg px-3 py-2 text-white text-sm focus:ring-2 focus:ring-teal-500"
+              >
+                <option value="all">คอร์สทั้งหมด</option>
+                {getUniqueCourses().map((course) => (
+                  <option key={course} value={course}>
+                    {course}
+                  </option>
+                ))}
               </select>
             </div>
 
@@ -324,19 +374,33 @@ const AdminDashboard: React.FC = () => {
 
       {/* Image Modal */}
       {selectedImage && (
-        <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4">
-          <div className="relative max-w-4xl max-h-full">
+        <div
+          className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4"
+          onClick={() => setSelectedImage(null)}
+        >
+          <div className="relative bg-slate-800 rounded-lg p-4 max-w-4xl max-h-full shadow-2xl">
+            {/* Close Button */}
             <button
               onClick={() => setSelectedImage(null)}
-              className="absolute -top-10 right-0 text-white hover:text-slate-300 text-xl"
+              className="absolute -top-3 -right-3 bg-red-500 hover:bg-red-600 text-white rounded-full p-2 shadow-lg transition-all duration-200 z-10"
             >
-              <FaTimes className="w-6 h-6" />
+              <FaTimes className="w-4 h-4" />
             </button>
-            <img
-              src={selectedImage}
-              alt="Payment Slip"
-              className="max-w-full max-h-full object-contain rounded-lg"
-            />
+
+            {/* Image Container */}
+            <div className="relative">
+              <img
+                src={selectedImage}
+                alt="Payment Slip"
+                className="max-w-full max-h-[80vh] object-contain rounded"
+                onClick={(e) => e.stopPropagation()}
+              />
+            </div>
+
+            {/* Image Title */}
+            <div className="mt-3 text-center">
+              <p className="text-slate-300 text-sm">หลักฐานการชำระเงิน</p>
+            </div>
           </div>
         </div>
       )}
