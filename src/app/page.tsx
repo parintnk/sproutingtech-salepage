@@ -8,33 +8,33 @@ export default function Home() {
   const features = [
     {
       icon: <FaRobot className="w-6 h-6" />,
-      title: "AI Automation Mastery",
-      description: "Learn to automate complex workflows with cutting-edge AI tools"
+      title: "Make.com Automation Mastery",
+      description: "เรียนรู้การใช้ Make.com เครื่องมือระดับโลกในการทำ AI Automation"
     },
     {
-      icon: <BsLightning className="w-6 h-6" />,
-      title: "Lightning Fast Results",
-      description: "Get immediate results and see your productivity skyrocket"
+      icon: <FaLightbulb className="w-6 h-6" />,
+      title: "กระบวนการคิดแบบ Pro",
+      description: "สอนให้คิดเป็น ไม่ใช่แค่ทำตาม เพื่อใช้งานได้ตลอดชีวิต"
     },
     {
       icon: <FaChartBar className="w-6 h-6" />,
-      title: "Data-Driven Strategies",
-      description: "Make informed decisions with AI-powered analytics"
+      title: "ตั้งแต่เซียนจนถึงใช้งานจริง",
+      description: "เริ่มจากไม่รู้อะไรเลย จนสามารถใช้งานได้ในชีวิตจริง"
     },
     {
       icon: <FaClock className="w-6 h-6" />,
-      title: "Save Hours Daily",
-      description: "Reduce manual work and focus on what matters most"
+      title: "Live Stream สดทุกสัปดาห์",
+      description: "เรียนแบบ Interactive ถาม-ตอบได้ทันที ไม่ใช่วิดีโอบันทึก"
     }
   ];
 
   const benefits = [
-    "Master AI automation from zero to expert level",
-    "Access to premium AI tools and resources",
-    "Step-by-step video tutorials",
-    "Real-world project examples",
-    "Community support and updates",
-    "30-day money-back guarantee"
+    "สอนสดผ่าน Live Stream ทุกสัปดาห์ - ถาม-ตอบได้ทันที",
+    "เรียนรู้ Make.com เครื่องมือระดับโลกที่ใช้งานจริง",
+    "สอนกระบวนการคิด ไม่ใช่แค่วิธีการ - ใช้ได้ตลอดชีวิต",
+    "ตั้งแต่ไม่มีประสบการณ์จนใช้งานจริงได้",
+    "โปรเจ็คจริงจากธุรกิจจริง ไม่ใช่ตัวอย่างปลอม",
+    "รับประกันผลลัพธ์ใน 30 วัน คืนเงิน 100%"
   ];
 
   const testimonials = [
@@ -109,47 +109,76 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Sticky Top CTA Bar */}
-      <div className="fixed top-0 left-0 right-0 bg-gray-900 text-white z-50 py-2 sm:py-3 px-2 sm:px-4 shadow-lg border-b-2 border-green-600">
-        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-4">
-          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 text-xs sm:text-sm md:text-base">
-            <div className="flex items-center gap-1 sm:gap-2 bg-white/20 px-2 sm:px-3 py-1 rounded-full font-semibold text-xs sm:text-sm">
-              <FaFire className="w-4 h-4 text-red-400" />
-              <span>{"ลดราคาพิเศษ 73% OFF"}</span>
-            </div>
-            <div className="text-gray-200 text-md sm:text-lg sm:block">
-              {"จาก"} <span className="line-through">{"฿25,900"}</span> <FaArrowRight className="w-3 h-3 inline mx-1 sm:mx-2" /> <span className="text-green-400 font-bold">{"฿6,990"}</span>
-            </div>
-            <div className="flex items-center gap-1 sm:gap-2">
-              <FaClock className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-400" />
-              <span className="text-gray-300 text-xs sm:text-sm">{"เหลือเวลา:"}</span>
-              <div className="flex gap-0.5 sm:gap-1">
-                <span className="bg-gray-700 px-1 sm:px-2 py-0.5 sm:py-1 rounded text-xs font-mono">
-                  {String(timeLeft.hours).padStart(2, '0')}
-                </span>
-                <span className="text-xs">:</span>
-                <span className="bg-gray-700 px-1 sm:px-2 py-0.5 sm:py-1 rounded text-xs font-mono">
-                  {String(timeLeft.minutes).padStart(2, '0')}
-                </span>
-                <span className="text-xs">:</span>
-                <span className="bg-gray-700 px-1 sm:px-2 py-0.5 sm:py-1 rounded text-xs font-mono">
-                  {String(timeLeft.seconds).padStart(2, '0')}
-                </span>
+      {/* Premium Sales Banner */}
+      <div className="fixed top-0 left-0 right-0 z-50 shadow-xl">
+        <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-green-600 text-white py-4 sm:py-5 px-4 sm:px-6 relative overflow-hidden">
+          {/* Subtle background pattern */}
+          <div className="absolute inset-0 bg-black/10"></div>
+
+          <div className="relative max-w-6xl mx-auto">
+            <div className="flex flex-col lg:flex-row items-center justify-between gap-4 lg:gap-6">
+
+              {/* Left: Sale Info */}
+              <div className="flex items-center gap-3 sm:gap-4">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+                  <FaFire className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-300" />
+                </div>
+                <div>
+                  <div className="font-bold text-lg sm:text-xl lg:text-2xl">
+                    {"ข้อเสนอพิเศษ AI Automation"}
+                  </div>
+                  <div className="text-sm sm:text-base text-blue-200">
+                    {"ลดราคา 73% เฉพาะวันนี้เท่านั้น"}
+                  </div>
+                </div>
+              </div>
+
+              {/* Center: Countdown Timer */}
+              <div className="flex items-center gap-2 bg-white/10 rounded-xl px-4 py-2 backdrop-blur-sm">
+                <FaClock className="w-4 h-4 text-yellow-300" />
+                <span className="text-sm font-medium text-blue-200 mr-2">{"เหลือเวลา:"}</span>
+                <div className="flex items-center gap-1">
+                  <div className="bg-white text-blue-700 font-bold px-2 py-1 rounded text-sm sm:text-base font-mono min-w-[32px] text-center">
+                    {String(timeLeft.hours).padStart(2, '0')}
+                  </div>
+                  <span className="text-white text-sm">:</span>
+                  <div className="bg-white text-blue-700 font-bold px-2 py-1 rounded text-sm sm:text-base font-mono min-w-[32px] text-center">
+                    {String(timeLeft.minutes).padStart(2, '0')}
+                  </div>
+                  <span className="text-white text-sm">:</span>
+                  <div className="bg-white text-blue-700 font-bold px-2 py-1 rounded text-sm sm:text-base font-mono min-w-[32px] text-center">
+                    {String(timeLeft.seconds).padStart(2, '0')}
+                  </div>
+                </div>
+              </div>
+
+              {/* Right: Price & CTA */}
+              <div className="flex items-center gap-4">
+                {/* Price */}
+                <div className="text-center">
+                  <div className="text-sm text-blue-200">{"จาก"} <span className="line-through">{"฿25,900"}</span></div>
+                  <div className="text-xl sm:text-2xl font-bold text-yellow-300">{"฿6,990"}</div>
+                </div>
+
+                {/* CTA Button */}
+                <button className="bg-green-500 hover:bg-green-400 text-white font-bold px-6 sm:px-8 py-2.5 sm:py-3 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl text-sm sm:text-base flex items-center gap-2 whitespace-nowrap">
+                  <span>{"สั่งซื้อเลย"}</span>
+                  <FaArrowRight className="w-4 h-4" />
+                </button>
               </div>
             </div>
           </div>
-          <button className="bg-green-600 hover:bg-green-500 text-white px-3 sm:px-6 py-1.5 sm:py-2 rounded-lg font-semibold transition-all flex items-center gap-1 sm:gap-2 text-sm sm:text-base">
-            <FaLightbulb className="w-3 h-3 sm:w-4 sm:h-4" />
-            <span className="inline">{"สั่งซื้อเลย"}</span>
-          </button>
         </div>
-      </div>
 
-      {/* Alert Banner */}
-      <div className="bg-blue-50 border-l-4 border-blue-500 text-gray-800 py-2 sm:py-3 px-2 sm:px-4 text-center mt-16 sm:mt-20">
-        <div className="flex items-center justify-center gap-2">
-          <FaExclamationTriangle className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600" />
-          <span className="font-semibold text-sm sm:text-base">{"เหลือโควต้าเพียง 23 ที่นั่ง จาก 50 ที่นั่ง - รีบจองก่อนหมด"}</span>
+        {/* Bottom strip */}
+        <div className="bg-green-500 hidden md:block text-white py-1.5 px-4">
+          <div className="max-w-6xl mx-auto flex items-center justify-center gap-3 text-sm font-medium">
+            <FaExclamationTriangle className="w-4 h-4 text-yellow-300" />
+            <span>{"เหลือเพียง 27 ที่นั่ง | 1,200+ คนสั่งซื้อแล้ว"}</span>
+            <div className="bg-yellow-400 text-green-700 px-3 py-1 rounded-full text-xs font-bold">
+              {"73% OFF"}
+            </div>
+          </div>
         </div>
       </div>
 
@@ -162,13 +191,13 @@ export default function Home() {
             <span className="text-xs sm:text-sm font-medium">{studentsCount}+ นักเรียนเรียนจบแล้ว</span>
           </div>
 
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 sm:mb-8 leading-tight">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl mt-10 font-bold mb-6 sm:mb-8 leading-tight">
             <div className="flex items-center justify-center gap-2 sm:gap-3 mb-3 sm:mb-4 flex-wrap">
               <FaRobot className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-green-400" />
-              <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl">{"เปลี่ยนชีวิตด้วย"}</span>
+              <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl">{"เรียนสด Online"}</span>
             </div>
             <span className="block text-green-400 mb-3 sm:mb-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">AI Automation</span>
-            <span className="block text-lg sm:text-xl md:text-2xl lg:text-3xl text-yellow-300 font-medium">{"ใน 30 วัน"}</span>
+            <span className="block text-lg sm:text-xl md:text-2xl lg:text-3xl text-yellow-300 font-medium">{"จากเซียนถึงใช้งานจริง"}</span>
           </h1>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 md:gap-6 mb-6 sm:mb-8 max-w-4xl mx-auto">
@@ -277,7 +306,7 @@ export default function Home() {
               </h2>
             </div>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-12">
-              {"เพราะเราไม่ได้สอนแค่ทฤษฎี แต่เราให้คุณได้ลงมือทำจริง และมีผลลัพธ์จริง!"}
+              {"เพราะเราไม่ได้สอนแค่วิธีการ แต่เราสอนกระบวนการคิดผ่าน Live Stream ให้คุณเข้าใจจากหลักการจนใช้งานจริงได้!"}
             </p>
 
             {/* Mobile-Friendly Comparison Cards */}
@@ -529,13 +558,18 @@ export default function Home() {
           </div>
 
           {/* Video Testimonials Teaser */}
-          <div className="bg-gray-800 border border-green-600 rounded-2xl p-8 text-center">
-            <h3 className="text-2xl font-bold mb-4">{"📹 + อีก 50+ วิดีโอเท​สโมเนียล"}</h3>
-            <p className="mb-4">{"ดูคลิปวิดีโอจากนักเรียนที่ประสบความสำเร็จด้วยตัวเองใน Member Area!"}</p>
-            <CTAButton className="bg-white text-gray-800 hover:bg-gray-100 border-2 border-green-600">
-              <FaUser className="w-5 h-5" />
-              {"🎯 อยากเป็นเหมือนพวกเขา - ฿6,990"}
-            </CTAButton>
+          <div className="bg-gray-800 border border-green-600 rounded-2xl p-4 sm:p-6 md:p-8 text-center">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <FaPlay className="w-6 h-6 text-white" />
+              <h3 className="text-xl sm:text-2xl font-bold">{"อีก 50+ วิดีโอเทสโมเนียล"}</h3>
+            </div>
+            <p className="text-sm sm:text-base text-gray-300 mb-6 max-w-lg mx-auto leading-relaxed">{"ดูคลิปวิดีโอจากนักเรียนที่ประสบความสำเร็จด้วยตัวเองใน Member Area!"}</p>
+            <div className="max-w-sm mx-auto">
+              <button className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-full text-sm sm:text-base transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2">
+                <FaArrowRight className="w-4 h-4" />
+                <span>{"อยากเป็นเหมือนพวกเขา - ฿6,990"}</span>
+              </button>
+            </div>
           </div>
         </div>
       </section>
@@ -564,16 +598,21 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="text-center">
-            <div className="bg-green-600 text-white p-6 rounded-2xl mb-8 border border-green-500">
-              <h3 className="text-2xl font-bold mb-2">{"🎯 รับประกันผลลัพธ์!"}</h3>
-              <p className="text-lg">{"หากไม่เห็นผลใน 30 วัน เราคืนเงิน 100% ไม่ถามคำถาม!"}</p>
+          <div className="text-center px-4 sm:px-0">
+            <div className="bg-green-600 text-white p-4 sm:p-5 md:p-6 rounded-xl sm:rounded-2xl mb-6 sm:mb-8 border border-green-500 max-w-2xl mx-auto">
+              <div className="flex items-center justify-center gap-2 mb-3">
+                <FaShieldAlt className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                <h3 className="text-lg sm:text-xl md:text-2xl font-bold">{"รับประกันผลลัพธ์!"}</h3>
+              </div>
+              <p className="text-sm sm:text-base md:text-lg leading-relaxed">{"หากไม่เห็นผลใน 30 วัน เราคืนเงิน 100% ไม่ถามคำถาม!"}</p>
             </div>
 
-            <CTAButton className="bg-white text-green-800 hover:bg-gray-100" size="large">
-              <FaLightbulb className="w-6 h-6" />
-              {"💎 รับทุกสิ่งนี้เพียง ฿6,990"}
-            </CTAButton>
+            <div className="max-w-md mx-auto">
+              <button className="w-full bg-white text-green-800 hover:bg-gray-100 border-2 border-green-600 font-bold py-4 px-6 rounded-full text-base sm:text-lg md:text-xl transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2 sm:gap-3">
+                <HiSparkles className="w-5 h-5 sm:w-6 sm:h-6" />
+                <span>{"รับทุกสิ่งนี้เพียง ฿6,990"}</span>
+              </button>
+            </div>
           </div>
         </div>
       </section>
@@ -620,38 +659,68 @@ export default function Home() {
             <p className="text-gray-800 font-bold">{"หมดเวลาแล้ว ราคากลับเป็น ฿25,900 ทันที!"}</p>
           </div>
 
-          {/* Price Comparison */}
-          <div className="bg-gradient-to-br from-blue-700 to-green-800 rounded-3xl p-10 text-white mb-8 shadow-2xl">
-            <div className="grid md:grid-cols-2 items-center gap-8">
-              <div className="text-left">
-                <div className="flex items-center gap-3 mb-4">
-                  <FaFire className="w-8 h-8 text-yellow-300" />
-                  <h3 className="text-3xl font-bold">{"ข้อเสนอสุดท้าย!"}</h3>
-                </div>
-                <div className="space-y-2">
-                  <p className="text-blue-200">{"คอร์ส AI Automation"} <span className="line-through">{"฿25,900"}</span></p>
-                  <p className="text-blue-200">{"+ โบนัส Premium Tools"} <span className="line-through">{"฿7,900"}</span></p>
-                  <p className="text-blue-200">{"+ Template Library"} <span className="line-through">{"฿4,900"}</span></p>
-                  <p className="text-blue-200">{"+ 1-on-1 Consultation"} <span className="line-through">{"฿7,100"}</span></p>
-                  <div className="border-t border-white/30 pt-2 mt-4">
-                    <p className="text-lg">{"มูลค่ารวม"} <span className="line-through text-xl">{"฿45,800"}</span></p>
-                    <p className="text-4xl font-bold text-yellow-300">{"วันนี้เพียง ฿6,990!"}</p>
-                    <div className="flex items-center justify-center gap-2">
-                      <FaArrowRight className="w-5 h-5 text-green-300" />
-                      <p className="text-green-300 font-bold text-xl">{"ประหยัด ฿38,810 (85% OFF!)"}</p>
+          {/* Price Comparison - Mobile Optimized */}
+          <div className="bg-gradient-to-br from-blue-700 to-green-800 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 lg:p-10 text-white mb-6 sm:mb-8 shadow-2xl mx-4 sm:mx-0">
+            {/* Header */}
+            <div className="text-center mb-6 sm:mb-8">
+              <div className="flex items-center justify-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+                <FaFire className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-yellow-300" />
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold">{"ข้อเสนอสุดท้าย!"}</h3>
+              </div>
+            </div>
+
+            {/* Content Grid */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-center">
+              {/* Price Breakdown */}
+              <div className="order-2 lg:order-1">
+                <div className="bg-white/10 rounded-xl p-4 sm:p-5 md:p-6 backdrop-blur-sm border border-white/20">
+                  <div className="space-y-2 sm:space-y-3">
+                    <div className="flex justify-between items-center text-sm sm:text-base">
+                      <span className="text-blue-200">{"คอร์ส AI Automation"}</span>
+                      <span className="line-through text-gray-300">{"฿25,900"}</span>
+                    </div>
+                    <div className="flex justify-between items-center text-sm sm:text-base">
+                      <span className="text-blue-200">{"+ โบนัส Premium Tools"}</span>
+                      <span className="line-through text-gray-300">{"฿7,900"}</span>
+                    </div>
+                    <div className="flex justify-between items-center text-sm sm:text-base">
+                      <span className="text-blue-200">{"+ Template Library"}</span>
+                      <span className="line-through text-gray-300">{"฿4,900"}</span>
+                    </div>
+                    <div className="flex justify-between items-center text-sm sm:text-base">
+                      <span className="text-blue-200">{"+ 1-on-1 Consultation"}</span>
+                      <span className="line-through text-gray-300">{"฿7,100"}</span>
+                    </div>
+
+                    <div className="border-t border-white/30 pt-3 sm:pt-4 mt-3 sm:mt-4">
+                      <div className="flex justify-between items-center mb-2">
+                        <span className="text-base sm:text-lg font-medium">{"มูลค่ารวม"}</span>
+                        <span className="line-through text-lg sm:text-xl text-gray-300">{"฿45,800"}</span>
+                      </div>
+
+                      <div className="text-center bg-yellow-400/20 rounded-lg p-3 sm:p-4">
+                        <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-yellow-300 mb-1 sm:mb-2">{"วันนี้เพียง ฿6,990!"}</p>
+                        <div className="flex items-center justify-center gap-2">
+                          <FaArrowRight className="w-4 h-4 text-green-300" />
+                          <p className="text-green-300 font-bold text-base sm:text-lg md:text-xl">{"ประหยัด ฿38,810 (85% OFF!)"}</p>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="text-center">
-                <CTAButton className="bg-green-600 text-white hover:bg-green-700 text-2xl py-6 px-12 mb-4 animate-bounce border-2 border-green-500">
-                  <FaArrowRight className="w-8 h-8" />
-                  {"สั่งซื้อตอนนี้เลย!"}
-                </CTAButton>
-                <div className="flex items-center justify-center gap-2">
-                  <BsLightning className="w-4 h-4 text-gray-300" />
-                  <p className="text-sm text-gray-300">{"คลิกเดียว ได้ทันที ไม่ต้องรอ!"}</p>
+              {/* CTA Button */}
+              <div className="text-center order-1 lg:order-2">
+                <div className="max-w-sm mx-auto">
+                  <button className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-4 sm:py-5 md:py-6 px-6 sm:px-8 md:px-12 rounded-full text-lg sm:text-xl md:text-2xl transition-all duration-300 shadow-lg hover:shadow-xl animate-bounce flex items-center justify-center gap-2 sm:gap-3 mb-3 sm:mb-4 border-2 border-green-500">
+                    <FaArrowRight className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8" />
+                    <span>{"สั่งซื้อตอนนี้เลย!"}</span>
+                  </button>
+                  <div className="flex items-center justify-center gap-2">
+                    <BsLightning className="w-3 h-3 sm:w-4 sm:h-4 text-gray-300" />
+                    <p className="text-xs sm:text-sm text-gray-300">{"คลิกเดียว ได้ทันที ไม่ต้องรอ!"}</p>
+                  </div>
                 </div>
               </div>
             </div>
