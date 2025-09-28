@@ -12,8 +12,8 @@ const STUDENT_INCREMENT_INTERVAL = 8000;
 const TIMER_INTERVAL = 1000;
 
 const INTERSECTION_OBSERVER_OPTIONS = {
-  threshold: 0.5,
-  rootMargin: '-10% 0px -10% 0px'
+  threshold: 0.3,
+  rootMargin: '0px 0px -20% 0px'
 };
 
 export const useCountdownTimer = () => {
