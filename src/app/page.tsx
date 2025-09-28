@@ -2,7 +2,7 @@
 import { FaPlay, FaCheck, FaRobot, FaLightbulb, FaChartBar, FaClock, FaStar, FaUser, FaFire, FaShieldAlt, FaGift, FaTrophy, FaCertificate, FaLock, FaMobile, FaHeadset, FaExclamationTriangle, FaArrowRight } from "react-icons/fa";
 import { HiSparkles } from "react-icons/hi";
 import { BsLightning } from "react-icons/bs";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export default function Home() {
   const features = [
@@ -71,6 +71,8 @@ export default function Home() {
   });
 
   const [studentsCount, setStudentsCount] = useState(1247);
+  const [isVideoInView, setIsVideoInView] = useState(false);
+  const videoSectionRef = useRef(null);
 
   const courses = [
     {
@@ -140,6 +142,31 @@ export default function Home() {
     return () => {
       clearInterval(timer);
       clearInterval(studentTimer);
+    };
+  }, []);
+
+  // Video Intersection Observer
+  useEffect(() => {
+    const videoSection = videoSectionRef.current;
+
+    if (!videoSection) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          setIsVideoInView(entry.isIntersecting);
+        });
+      },
+      {
+        threshold: 0.5, // Trigger when 50% of the section is visible
+        rootMargin: '-10% 0px -10% 0px' // Add some margin for better UX
+      }
+    );
+
+    observer.observe(videoSection);
+
+    return () => {
+      observer.disconnect();
     };
   }, []);
 
@@ -365,12 +392,12 @@ export default function Home() {
       </section>
 
       {/* Video Section */}
-      <section className="py-20 px-4 bg-slate-800">
+      <section ref={videoSectionRef} className="py-20 px-4 bg-slate-800">
         <div className="max-w-4xl mx-auto text-center">
           <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-black aspect-video border border-slate-600">
             <iframe
               className="w-full h-full"
-              src="https://www.youtube.com/embed/diGpkv3thvg"
+              src={`https://www.youtube.com/embed/diGpkv3thvg?autoplay=1&mute=${isVideoInView ? '0' : '1'}&enablejsapi=1&loop=1&playlist=diGpkv3thvg`}
               title="AI Automation Course Preview"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -392,7 +419,6 @@ export default function Home() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <div className="flex items-center justify-center gap-3 mb-6">
-              <FaRobot className="w-8 h-8 text-teal-400" />
               <h2 className="text-4xl md:text-5xl font-bold text-white">
                 {"Professional Training Programs"}
               </h2>
